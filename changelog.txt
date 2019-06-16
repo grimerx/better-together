@@ -1,0 +1,6 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.0.1
+Date:30-5-2019
+  Changes
+    - Initial release
+    - Coal dust has same pollution as coal
