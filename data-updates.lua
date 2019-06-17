@@ -156,6 +156,7 @@ morescience.tech.add_science_pack_range({"bio-processing-alien"}, 1, 10, 1)
 
 morescience.tech.add_science_pack_range({"rocket-booster-1"}, 1, 13, 1)
 
+morescience.tech.add_science_pack_range({"observation-satellite", "space-lab", "advanced-probe"}, 1, 30, 1)
 
 --
 -- Reduce requirement and make consistent for steam drills 

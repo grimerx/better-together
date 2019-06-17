@@ -125,9 +125,34 @@ bobmods.lib.tech.add_recipe_unlock("ore-crushing", "apm_crusher_drumms_used_repa
 bobmods.lib.tech.add_recipe_unlock("ore-crushing", "apm_wood_pellets_2");
 bobmods.lib.tech.add_recipe_unlock("ore-crushing", "apm_coal_crushed_3");
 
+--
+-- Move AAI unit controls to unlock with vehicles
+--
+
+bobmods.lib.tech.add_recipe_unlock("basic-vehicles", "unit-remote-control");
+bobmods.lib.tech.add_recipe_unlock("basic-vehicles", "path-remote-control");
+data.raw.recipe["unit-remote-control"].enabled = false;
+data.raw.recipe["path-remote-control"].enabled = false;
+
+--
+-- Move expanded cargo's Data Processing Lab to unlock with the packs it processes
+--
+bobmods.lib.tech.add_recipe_unlock("space-telescope", "erp-lab" );
+data.raw.recipe["erp-lab"].enabled = false;
+
+--
+-- Undo Engine/Vehicle tech changes made by AAI
+--
+bobmods.lib.tech.add_science_pack("engine", "logistic-science-pack", 1)
+bobmods.lib.tech.add_prerequisite("engine", "logistic-science-pack")
+
+data.raw["technology"]["automobilism"].unit.time = 30
+
+
 
 --
 -- Hide various things for cleanliness
 --
 data.raw.item["apm_crusher_machine_2"].hidden = true
 data.raw.item["burner-assembling-machine"].hidden = true
+
