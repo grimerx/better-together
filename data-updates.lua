@@ -103,15 +103,15 @@ bobmods.lib.tech.add_science_pack("vehicle-warden", "chemical-science-pack", 1)
 --
 -- Move early construction bots to be unlockable at start because otherwise maintenance is a pain
 --
-bobmods.lib.tech.replace_science_pack("early-construction-light-armor", "automation-science-pack", "apm_industrial_science_pack" )
-bobmods.lib.recipe.replace_ingredient("early-construction-light-armor", "basic-circuit-board", "apm_steam_relay") 
-bobmods.lib.recipe.replace_ingredient("early-construction-equipment", "basic-circuit-board", "apm_steam_relay") 
+-- bobmods.lib.tech.replace_science_pack("early-construction-light-armor", "automation-science-pack", "apm_industrial_science_pack" )
+-- bobmods.lib.recipe.replace_ingredient("early-construction-light-armor", "basic-circuit-board", "apm_steam_relay") 
+-- bobmods.lib.recipe.replace_ingredient("early-construction-equipment", "basic-circuit-board", "apm_steam_relay") 
 
 --
 -- Make Maintenance Madness's early maintainence gated on the Electricity tech and reduce it's cost to align with
 -- other techs
 --
-bobmods.lib.tech.add_prerequisite("mm-repair-and-maintenance", "apm_power_electricity")
+bobmods.lib.tech.add_prerequisite("mm-repair-and-maintenance", "electricity")
 bobmods.lib.tech.remove_prerequisite("mm-repair-and-maintenance", "automation")
 bobmods.lib.tech.remove_prerequisite("mm-repair-and-maintenance", "steel-processing")
 
@@ -139,7 +139,7 @@ bobmods.lib.tech.add_science_pack("rail-signals", "logistic-science-pack", 1)
 -- Move steel spare parts into steel puddling research
 --
 
-bobmods.lib.tech.add_recipe_unlock("apm_puddling_furnace_0", "mm-mechanical-spare-parts")
+-- bobmods.lib.tech.add_recipe_unlock("apm_puddling_furnace_0", "mm-mechanical-spare-parts")
 bobmods.lib.tech.remove_recipe_unlock("steel-processing", "mm-mechanical-spare-parts")
 
 --
@@ -161,31 +161,31 @@ morescience.tech.add_science_pack_range({"observation-satellite", "space-lab", "
 --
 -- Reduce requirement and make consistent for steam drills 
 --
-bobmods.lib.recipe.remove_ingredient("apm_steam_mining_drill", "engine-unit")
-bobmods.lib.recipe.add_ingredient("apm_steam_mining_drill", {"motor", 6})
-bobmods.lib.recipe.add_ingredient("apm_steam_mining_drill", {"pipe", 4})
-bobmods.lib.recipe.add_ingredient("apm_steam_mining_drill", {"steel", 4})
+-- bobmods.lib.recipe.remove_ingredient("apm_steam_mining_drill", "engine-unit")
+-- bobmods.lib.recipe.add_ingredient("apm_steam_mining_drill", {"motor", 6})
+-- bobmods.lib.recipe.add_ingredient("apm_steam_mining_drill", {"pipe", 4})
+-- bobmods.lib.recipe.add_ingredient("apm_steam_mining_drill", {"steel", 4})
 
-bobmods.lib.tech.add_science_pack("apm_steam_mining_drill", "automation-science-pack", 1 )
-bobmods.lib.tech.remove_prerequisite("apm_steam_mining_drill", "engine")
+-- bobmods.lib.tech.add_science_pack("apm_steam_mining_drill", "automation-science-pack", 1 )
+-- bobmods.lib.tech.remove_prerequisite("apm_steam_mining_drill", "engine")
 
 -- 
 -- Move engine unit tech later so we can make it more expensive since steam drills don't require it anymore
 --
-bobmods.lib.tech.add_prerequisite("engine", "fluid-handling")
+-- bobmods.lib.tech.add_prerequisite("engine", "fluid-handling")
 
 
 --
 -- Remove MSP's science packs from apm_power's first lab
 --
-data.raw["lab"]["apm_lab_0"].inputs = {
-		"apm_industrial_science_pack",
-	}
+-- data.raw["lab"]["apm_lab_0"].inputs = {
+-- 		"apm_industrial_science_pack",
+-- 	}
 
 --
 -- Make fluid control available earlier
 -- Otherwise managing recylcing of coal-water requires a lot of manual intervention
 --
-bobmods.lib.tech.remove_prerequisite("angels-fluid-control","basic-chemistry")
-bobmods.lib.tech.add_prerequisite("angels-fluid-control", "apm_power_steam")
-bobmods.lib.tech.replace_science_pack("angels-fluid-control", "automation-science-pack", "apm_industrial_science_pack" )
+-- bobmods.lib.tech.remove_prerequisite("angels-fluid-control","basic-chemistry")
+-- bobmods.lib.tech.add_prerequisite("angels-fluid-control", "apm_power_steam")
+-- bobmods.lib.tech.replace_science_pack("angels-fluid-control", "automation-science-pack", "apm_industrial_science_pack" )

@@ -7,5 +7,5 @@
 	"description": "A collection of adjustments to the AngelBobs/AAI Industry/Amator's mods that improve progression and remove/adjust recipies that make the later game easier.  Goal is to maintain the spirit and challenges of each mod when played together",
 	"homepage": "n/a",
 	"date": "5.30.2019",
-	"dependencies": ["base", "boblibrary >= 0.17.3", "angelspetrochem", "angelsrefining", "angelssmelting", "apm_power", "apm_nuclear", "bobplates", "bobrevamp", "angelsrefining", "aai-industry", "SpaceMod", "ScienceCostTweakerM", "? aai-vehicles-hauler", "? aai-vehicles-miner", "? aai-vehicles-chaingunner", "? aai-vehicles-laser-tank", "? aai-vehicles-warden", "heavyfreight", "grimerx-make-outposts-great-again", "grimerx-angels-tweaks", "grimerx-angels-fuelstack-rebalance" ]
+	"dependencies": ["base", "boblibrary >= 0.17.3", "angelspetrochem", "angelsrefining", "angelssmelting", "bobplates", "bobrevamp", "angelsrefining", "SpaceMod", "ScienceCostTweakerM", "? aai-vehicles-hauler", "? aai-vehicles-miner", "? aai-vehicles-chaingunner", "? aai-vehicles-laser-tank", "? aai-vehicles-warden", "heavyfreight", "grimerx-make-outposts-great-again", "grimerx-angels-tweaks", "grimerx-angels-fuelstack-rebalance" ]
 }
