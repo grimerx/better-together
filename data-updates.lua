@@ -140,19 +140,21 @@ bobmods.lib.tech.add_science_pack("rail-signals", "logistic-science-pack", 1)
 --
 
 -- bobmods.lib.tech.add_recipe_unlock("apm_puddling_furnace_0", "mm-mechanical-spare-parts")
-bobmods.lib.tech.remove_recipe_unlock("steel-processing", "mm-mechanical-spare-parts")
+-- bobmods.lib.tech.remove_recipe_unlock("steel-processing", "mm-mechanical-spare-parts")
 
 --
 -- Add MSP's science pack throughout the tech tree
 --
 
 morescience.tech.add_science_pack_range({"basic-chemistry"}, 1, 2, 1)
-morescience.tech.add_science_pack_range({"angels-metallurgy-1", "angels-coal-processing", "water-treatment", "chlorine-processing-1", "electrolysis-1", "chemical-processing-1"}, 1, 3, 1)
+morescience.tech.add_science_pack_range({"mm-repair-and-maintenance", "angels-metallurgy-1", "angels-coal-processing", "water-treatment", "chlorine-processing-1", "electrolysis-1", "chemical-processing-1"}, 1, 3, 1)
 morescience.tech.add_science_pack_range({"gardens", "bio-nutrient-paste", "bio-pressing", "bio-wood-processing"}, 1, 4, 1)
 
 morescience.tech.add_science_pack_range({"advanced-ore-refining-1", "ore-advanced-crushing", "slag-processing-1", "geode-processing-2","oil-gas-extraction"}, 1, 7, 1)
 
 morescience.tech.add_science_pack_range({"bio-processing-alien"}, 1, 10, 1)
+
+morescience.tech.add_science_pack_range({"position-beacon"}, 1, 12, 1)
 
 morescience.tech.add_science_pack_range({"rocket-booster-1"}, 1, 13, 1)
 

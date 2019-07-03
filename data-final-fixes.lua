@@ -179,3 +179,19 @@ for i, technology in pairs(data.raw.technology) do
 	end
 	if fixup then bobmods.lib.tech.replace_prerequisite(technology.name, "sct-automation-science-pack", "automation-science-pack") end
 end
+
+--- 
+--- Clean up the tech tree a bit
+---
+bobmods.lib.tech.add_prerequisite("mm-repair-and-maintenance", "electronics")
+bobmods.lib.tech.add_prerequisite("electricity", "steam-power")
+bobmods.lib.tech.add_prerequisite("automation", "steam-automation")
+
+bobmods.lib.tech.add_prerequisite("omnitech-more-science-pack-1-1", "automation-science-pack")
+
+bobmods.lib.tech.add_science_pack("basic-transport-belt-beltbox","automation-science-pack", 1)
+bobmods.lib.tech.remove_science_pack("basic-transport-belt-beltbox","steam-science-pack")
+
+bobmods.lib.tech.add_prerequisite("position-beacon", "basic-vehicles")
+bobmods.lib.tech.add_science_pack("position-beacon", "logistic-science-pack", 1)
+data.raw.technology["position-beacon"].unit.count = data.raw.technology["basic-vehicles"].unit.count
