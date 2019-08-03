@@ -161,11 +161,14 @@ data.raw.recipe["erp-lab"].enabled = false;
 ---
 data.raw.technology["sct-lab-t1"].enabled = false
 data.raw.technology["sct-automation-science-pack"].enabled = false
+data.raw.recipe["automation-science-pack-basic"].enabled = true
 bobmods.lib.tech.add_recipe_unlock("lab", "sct-lab1-construction");
 bobmods.lib.tech.add_recipe_unlock("lab", "sct-lab1-mechanization");
 bobmods.lib.tech.add_recipe_unlock("automation-science-pack", "sct-t1-ironcore");
 bobmods.lib.tech.add_recipe_unlock("automation-science-pack", "sct-t1-magnet-coils");
 bobmods.lib.tech.add_prerequisite("automation-science-pack", "steam-power")
+bobmods.lib.tech.remove_recipe_unlock("automation-science-pack", "automation-science-pack");
+bobmods.lib.tech.add_recipe_unlock("automation-science-pack", "automation-science-pack-basic");
 
 --
 -- Merge sct-automation-science-pack back into automation-science-pack
@@ -186,6 +189,7 @@ end
 bobmods.lib.tech.add_prerequisite("mm-repair-and-maintenance", "electronics")
 bobmods.lib.tech.add_prerequisite("electricity", "steam-power")
 bobmods.lib.tech.add_prerequisite("automation", "steam-automation")
+bobmods.lib.tech.add_prerequisite("sct-automation-science-pack", "bottling-research")
 
 bobmods.lib.tech.add_prerequisite("omnitech-more-science-pack-1-1", "automation-science-pack")
 
