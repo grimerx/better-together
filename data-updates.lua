@@ -14,26 +14,27 @@ updateInventoryIfExistedAndExpectedValue("vehicle-miner-mk4", data.raw["cargo-wa
 updateInventoryIfExistedAndExpectedValue("vehicle-miner-mk5", data.raw["cargo-wagon"]["cargo-wagon"].inventory_size / 4)
 
 data.raw["car"]["vehicle-hauler"].burner.effectivity = data.raw["car"]["vehicle-hauler"].burner.effectivity / 50
-data.raw["car"]["vehicle-miner"].burner.effectivity = data.raw["car"]["vehicle-miner"].burner.effectivity / 50
-data.raw["car"]["vehicle-miner-mk2"].burner.effectivity = data.raw["car"]["vehicle-miner-mk2"].burner.effectivity / 50
-data.raw["car"]["vehicle-miner-mk3"].burner.effectivity = data.raw["car"]["vehicle-miner-mk3"].burner.effectivity / 50
-data.raw["car"]["vehicle-miner-mk4"].burner.effectivity = data.raw["car"]["vehicle-miner-mk4"].burner.effectivity / 50
-data.raw["car"]["vehicle-miner-mk5"].burner.effectivity = data.raw["car"]["vehicle-miner-mk5"].burner.effectivity / 50
+
+if mods["aai-vehicles-miner"] then
+	data.raw["car"]["vehicle-miner"].burner.effectivity = data.raw["car"]["vehicle-miner"].burner.effectivity / 50
+	data.raw["car"]["vehicle-miner-mk2"].burner.effectivity = data.raw["car"]["vehicle-miner-mk2"].burner.effectivity / 50
+	data.raw["car"]["vehicle-miner-mk3"].burner.effectivity = data.raw["car"]["vehicle-miner-mk3"].burner.effectivity / 50
+	data.raw["car"]["vehicle-miner-mk4"].burner.effectivity = data.raw["car"]["vehicle-miner-mk4"].burner.effectivity / 50
+	data.raw["car"]["vehicle-miner-mk5"].burner.effectivity = data.raw["car"]["vehicle-miner-mk5"].burner.effectivity / 50
+end
 
 --
 -- Require vehicles to have robotic brains and in general fix their location in the tech tree
 --
 bobmods.lib.recipe.add_ingredient("vehicle-hauler", {"robot-brain-logistic", 1})
 bobmods.lib.recipe.add_ingredient("vehicle-chaingunner", {"robot-brain-logistic", 1})
+
 bobmods.lib.recipe.add_ingredient("vehicle-miner", {"robot-brain-logistic", 1})
 bobmods.lib.recipe.add_ingredient("vehicle-miner-mk2", {"robot-brain-logistic", 1})
 bobmods.lib.recipe.add_ingredient("vehicle-miner-mk3", {"robot-brain-logistic-mk2", 1})
 bobmods.lib.recipe.add_ingredient("vehicle-miner-mk4", {"robot-brain-logistic-mk3", 1})
 bobmods.lib.recipe.add_ingredient("vehicle-miner-mk5", {"robot-brain-logistic-mk4", 1})
 bobmods.lib.recipe.add_ingredient("vehicle-warden", {"robot-brain-logistic", 1})
-
-
-bobmods.lib.recipe.add_ingredient("vehicle-miner-mk5", {"robot-brain-logistic-mk4", 1})
 
 -- Flame tank should require a tank (as does the laser tank) 
 bobmods.lib.recipe.add_ingredient("vehicle-flame-tank", {"tank", 1})
@@ -63,42 +64,50 @@ bobmods.lib.tech.add_prerequisite("basic-vehicles", "automobilism")
 bobmods.lib.tech.add_science_pack("basic-vehicles", "automation-science-pack", 1)
 bobmods.lib.tech.add_science_pack("basic-vehicles", "logistic-science-pack", 1)
 
-data.raw.technology["vehicle-chaingunner"].unit.count = data.raw.technology["basic-vehicles"].unit.count * 1.25
-bobmods.lib.tech.add_prerequisite("vehicle-chaingunner", "basic-vehicles")
-bobmods.lib.tech.add_science_pack("vehicle-chaingunner", "logistic-science-pack", 1)
+if mods["aai-vehicles-chaingunner"] then
+	data.raw.technology["vehicle-chaingunner"].unit.count = data.raw.technology["basic-vehicles"].unit.count * 1.25
+	bobmods.lib.tech.add_prerequisite("vehicle-chaingunner", "basic-vehicles")
+	bobmods.lib.tech.add_science_pack("vehicle-chaingunner", "logistic-science-pack", 1)
+end
 
-bobmods.lib.tech.add_prerequisite("vehicle-laser-tank", "basic-vehicles")
+if mods["aai-vehicles-laser-tank"] then
+	bobmods.lib.tech.add_prerequisite("vehicle-laser-tank", "basic-vehicles")
+end
 
-data.raw.technology["vehicle-miner"].unit.count = data.raw.technology["basic-vehicles"].unit.count * 1.25
-bobmods.lib.tech.add_prerequisite("vehicle-miner", "basic-vehicles")
-bobmods.lib.tech.add_science_pack("vehicle-miner", "automation-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-miner", "logistic-science-pack", 1)
+if mods["aai-vehicles-miner"] then
+	data.raw.technology["vehicle-miner"].unit.count = data.raw.technology["basic-vehicles"].unit.count * 1.25
+	bobmods.lib.tech.add_prerequisite("vehicle-miner", "basic-vehicles")
+	bobmods.lib.tech.add_science_pack("vehicle-miner", "automation-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner", "logistic-science-pack", 1)
 
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk2", "automation-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk2", "logistic-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk2", "military-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk2", "automation-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk2", "logistic-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk2", "military-science-pack", 1)
 
-bobmods.lib.tech.add_prerequisite("vehicle-miner-mk3", "bob-robots-1")
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk3", "automation-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk3", "logistic-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk3", "military-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk3", "production-science-pack", 1)
+	bobmods.lib.tech.add_prerequisite("vehicle-miner-mk3", "bob-robots-1")
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk3", "automation-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk3", "logistic-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk3", "military-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk3", "production-science-pack", 1)
 
-bobmods.lib.tech.add_prerequisite("vehicle-miner-mk4", "bob-robots-2")
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "automation-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "logistic-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "military-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "production-science-pack", 1)
+	bobmods.lib.tech.add_prerequisite("vehicle-miner-mk4", "bob-robots-2")
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "automation-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "logistic-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "military-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "production-science-pack", 1)
 
-bobmods.lib.tech.add_prerequisite("vehicle-miner-mk5", "bob-robots-3")
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "automation-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "logistic-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "military-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "production-science-pack", 1)
+	bobmods.lib.tech.add_prerequisite("vehicle-miner-mk5", "bob-robots-3")
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "automation-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "logistic-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "military-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-miner-mk4", "production-science-pack", 1)
+end
 
-bobmods.lib.tech.add_prerequisite("vehicle-warden", "basic-vehicles")
-bobmods.lib.tech.add_science_pack("vehicle-warden", "military-science-pack", 1)
-bobmods.lib.tech.add_science_pack("vehicle-warden", "chemical-science-pack", 1)
+if mods["aai-vehicles-warden"] then
+	bobmods.lib.tech.add_prerequisite("vehicle-warden", "basic-vehicles")
+	bobmods.lib.tech.add_science_pack("vehicle-warden", "military-science-pack", 1)
+	bobmods.lib.tech.add_science_pack("vehicle-warden", "chemical-science-pack", 1)
+end
 
 --
 -- Move early construction bots to be unlockable at start because otherwise maintenance is a pain
@@ -125,15 +134,9 @@ bobmods.lib.tech.remove_prerequisite("heavy-armor", "apm_puddling_furnace_0")
 
 --
 -- Replace industrial science pack with regular science pack for a few techs so you can eventually get out of steam-era science packs
--- TODO: consider making 
 --
-bobmods.lib.tech.replace_science_pack("engine", "apm_industrial_science_pack", "automation-science-pack" )
-bobmods.lib.tech.replace_science_pack("railway", "apm_industrial_science_pack", "automation-science-pack" )
-bobmods.lib.tech.replace_science_pack("automated-rail-transportation", "apm_industrial_science_pack", "automation-science-pack" )
-bobmods.lib.tech.add_science_pack("automated-rail-transportation", "logistic-science-pack", 1)
-bobmods.lib.tech.replace_science_pack("rail-signals", "apm_industrial_science_pack", "automation-science-pack" )
-bobmods.lib.tech.add_science_pack("rail-signals", "logistic-science-pack", 1)
-
+-- bobmods.lib.tech.add_science_pack("automated-rail-transportation", "logistic-science-pack", 1)
+-- bobmods.lib.tech.add_science_pack("rail-signals", "logistic-science-pack", 1)
 
 --
 -- Move steel spare parts into steel puddling research
