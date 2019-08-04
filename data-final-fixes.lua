@@ -190,6 +190,9 @@ bobmods.lib.tech.add_prerequisite("mm-repair-and-maintenance", "electronics")
 bobmods.lib.tech.add_prerequisite("electricity", "steam-power")
 bobmods.lib.tech.add_prerequisite("automation", "steam-automation")
 bobmods.lib.tech.add_prerequisite("sct-automation-science-pack", "bottling-research")
+bobmods.lib.tech.remove_recipe_unlock("basic-automation", "electric-mining-drill");
+bobmods.lib.tech.remove_recipe_unlock("basic-automation", "inserter");
+
 
 bobmods.lib.tech.add_prerequisite("omnitech-more-science-pack-1-1", "automation-science-pack")
 
