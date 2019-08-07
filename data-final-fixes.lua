@@ -183,13 +183,23 @@ for i, technology in pairs(data.raw.technology) do
 	if fixup then bobmods.lib.tech.replace_prerequisite(technology.name, "sct-automation-science-pack", "automation-science-pack") end
 end
 
+---
+--- Remove Science Pack 5 from Fluid Handling so we can reach water purification before logistic science pack
+--- Also remove dependency on Chemistry 2, primarily to smooth progression
+---
+bobmods.lib.tech.remove_science_pack("fluid-handling","more-science-pack-5")
+bobmods.lib.tech.remove_science_pack("purification-research","more-science-pack-5")
+bobmods.lib.tech.remove_prerequisite("purification-research", "basic-chemistry-2")
+bobmods.lib.tech.add_prerequisite("purification-research", "basic-chemistry")
+bobmods.lib.tech.add_prerequisite("basic-chemistry-2", "purification-research")
+
 --- 
 --- Clean up the tech tree a bit
 ---
 bobmods.lib.tech.add_prerequisite("mm-repair-and-maintenance", "electronics")
 bobmods.lib.tech.add_prerequisite("electricity", "steam-power")
 bobmods.lib.tech.add_prerequisite("automation", "steam-automation")
-bobmods.lib.tech.add_prerequisite("sct-automation-science-pack", "bottling-research")
+--bobmods.lib.tech.add_prerequisite("sct-automation-science-pack", "bottling-research")
 bobmods.lib.tech.remove_recipe_unlock("basic-automation", "electric-mining-drill");
 bobmods.lib.tech.remove_recipe_unlock("basic-automation", "inserter");
 
