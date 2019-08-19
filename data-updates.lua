@@ -194,3 +194,9 @@ morescience.tech.add_science_pack_range({"observation-satellite", "space-lab", "
 -- bobmods.lib.tech.remove_prerequisite("angels-fluid-control","basic-chemistry")
 -- bobmods.lib.tech.add_prerequisite("angels-fluid-control", "apm_power_steam")
 -- bobmods.lib.tech.replace_science_pack("angels-fluid-control", "automation-science-pack", "apm_industrial_science_pack" )
+
+-- Make mantainence unit cheaper
+bobmods.lib.recipe.remove_ingredient("mm-simple-maintenance-unit", "steel-chest")
+bobmods.lib.recipe.remove_ingredient("mm-simple-maintenance-unit", "electronic-circuit")
+bobmods.lib.recipe.add_ingredient("mm-simple-maintenance-unit", {"iron-chest", 1})
+bobmods.lib.recipe.add_ingredient("mm-simple-maintenance-unit", {"basic-circuit-board", 5})

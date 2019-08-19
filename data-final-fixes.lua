@@ -199,6 +199,17 @@ bobmods.lib.tech.remove_prerequisite("purification-research", "basic-chemistry-2
 bobmods.lib.tech.add_prerequisite("purification-research", "basic-chemistry")
 bobmods.lib.tech.add_prerequisite("basic-chemistry-2", "purification-research")
 
+---
+--- Remove SP 9/10 from Advanced Automation Science Pack, otherwise it cannot be researched
+--- as it is required for SP 9/10
+---
+bobmods.lib.tech.remove_science_pack("logistics-2","more-science-pack-9")
+bobmods.lib.tech.remove_science_pack("logistics-2","more-science-pack-10")
+bobmods.lib.tech.remove_science_pack("fast-inserter","more-science-pack-9")
+bobmods.lib.tech.remove_science_pack("fast-inserter","more-science-pack-10")
+bobmods.lib.tech.remove_science_pack("advanced-automation-science-pack","more-science-pack-9")
+bobmods.lib.tech.remove_science_pack("advanced-automation-science-pack","more-science-pack-10")
+
 --- 
 --- Clean up the tech tree a bit
 ---
