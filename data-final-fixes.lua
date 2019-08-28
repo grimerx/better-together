@@ -228,3 +228,11 @@ bobmods.lib.tech.remove_science_pack("basic-transport-belt-beltbox","steam-scien
 bobmods.lib.tech.add_prerequisite("position-beacon", "basic-vehicles")
 bobmods.lib.tech.add_science_pack("position-beacon", "logistic-science-pack", 1)
 data.raw.technology["position-beacon"].unit.count = data.raw.technology["basic-vehicles"].unit.count
+
+--
+-- Workaround https://mods.factorio.com/mod/expanded-rocket-payloads/discussion/5d49b8109c84c7000c7020d9
+--
+if data.raw["assembling-machine"]["advanced-assembler"] then
+	data.raw["assembling-machine"]["advanced-assembler"].fluid_boxes[3] = nil
+	data.raw["assembling-machine"]["advanced-assembler"].fluid_boxes[4] = nil
+end
